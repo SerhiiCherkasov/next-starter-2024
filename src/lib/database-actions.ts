@@ -6,30 +6,7 @@ import {redirect} from "next/navigation";
 import { FormSchema} from "@/src/lib/schemas";
 import {Writeable, ZodEnum, ZodNumber, ZodString} from "zod";
 
-export async function createInvoice(data: {
-  date: string;
-  amount: Omit<{
-    date: ZodString;
-    amount: ZodNumber;
-    customerId: ZodString;
-    id: ZodString;
-    status: ZodEnum<Writeable<[string, string]>>
-  }, "date" | "id">["amount"]["_output"];
-  customerId: Omit<{
-    date: ZodString;
-    amount: ZodNumber;
-    customerId: ZodString;
-    id: ZodString;
-    status: ZodEnum<Writeable<[string, string]>>
-  }, "date" | "id">["customerId"]["_output"];
-  status: Omit<{
-    date: ZodString;
-    amount: ZodNumber;
-    customerId: ZodString;
-    id: ZodString;
-    status: ZodEnum<Writeable<[string, string]>>
-  }, "date" | "id">["status"]["_output"]
-}) {
+export async function createInvoice(data: typeof FormSchema | any) {
   const { customerId, amount, status, date } = data
 
   try {
@@ -49,30 +26,7 @@ export async function createInvoice(data: {
 }
 
 
-export async function updateInvoice(data: {
-  amount: Omit<{
-    date: ZodString;
-    amount: ZodNumber;
-    customerId: ZodString;
-    id: ZodString;
-    status: ZodEnum<Writeable<[string, string]>>
-  }, "date" | "id">["amount"]["_output"];
-  customerId: Omit<{
-    date: ZodString;
-    amount: ZodNumber;
-    customerId: ZodString;
-    id: ZodString;
-    status: ZodEnum<Writeable<[string, string]>>
-  }, "date" | "id">["customerId"]["_output"];
-  id: File | string;
-  status: Omit<{
-    date: ZodString;
-    amount: ZodNumber;
-    customerId: ZodString;
-    id: ZodString;
-    status: ZodEnum<Writeable<[string, string]>>
-  }, "date" | "id">["status"]["_output"]
-}) {
+export async function updateInvoice(data: typeof FormSchema | any) {
   const { customerId, amount, status, id } = data
 
   try {
