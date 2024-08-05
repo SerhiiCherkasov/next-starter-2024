@@ -5,7 +5,7 @@ import {revalidatePath} from "next/cache";
 import {redirect} from "next/navigation";
 import { FormSchema} from "@/src/lib/schemas";
 
-export async function createInvoice(data: FormSchema) {
+export async function createInvoice(data: typeof FormSchema) {
   const { customerId, amount, status, date } = data
 
   try {
@@ -25,7 +25,7 @@ export async function createInvoice(data: FormSchema) {
 }
 
 
-export async function updateInvoice(data: FormSchema) {
+export async function updateInvoice(data: typeof FormSchema) {
   const { customerId, amount, status, id } = data
 
   try {
