@@ -13,7 +13,7 @@ import { saveInvoice, State } from '@/src/lib/actions';
 import { Button } from '@/src/ui/button';
 
 export default function Form({ customers, invoice }: { customers: CustomerField[], invoice?: InvoiceForm; }) {
-  const initialState: State = { message: null, errors: {} };
+  const initialState: State | any = { message: null, errors: {} };
   const [state, formAction] = useActionState(saveInvoice, initialState);
 
   console.log('>>>> state ', state)
