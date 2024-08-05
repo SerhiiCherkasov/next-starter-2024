@@ -31,14 +31,13 @@ export async function saveInvoice(prevState: State, formData: FormData) {
     };
   }
 
-  const { amount } = validatedFields.data
-  const amountInCents = amount * 100;
+  validatedFields.data.amount *= 100;
 
   if (id) {
-    return updateInvoice({...validatedFields.data, amount: amountInCents, id})
+    return updateInvoice({...validatedFields.data, id})
   } else {
     const date = new Date().toISOString().split('T')[0];
-    return createInvoice({...validatedFields.data, amount: amountInCents, date})
+    return createInvoice({...validatedFields.data, date})
   }
 }
 
