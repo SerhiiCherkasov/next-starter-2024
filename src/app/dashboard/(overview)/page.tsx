@@ -4,12 +4,16 @@ import CardWrapper from '@/src/ui/dashboard/cards';
 import { lusitana } from '@/src/ui/fonts';
 import { Suspense } from 'react';
 import { RevenueChartSkeleton, InvoiceSkeleton, CardsSkeleton } from '@/src/ui/skeletons';
+import { Metadata } from 'next';
+
+export const metadata: Metadata = {
+  title: 'Overview',
+};
 
 type DashboardProps = {
 
 };
 export default async function Dashboard(props: DashboardProps) {
-  
 
   return (
     <main>
