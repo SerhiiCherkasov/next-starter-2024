@@ -22,12 +22,12 @@ export const invoicesTableHeaders: TableHeader[] = [
   {
     title: 'Amount',
     slug: 'amount',
-    formatter: formatCurrency,
+    formatter: (num) => formatCurrency(Number(num)),
   },
   {
     title: 'Date',
     slug: 'date',
-    formatter: formatDateToLocal,
+    formatter: (str) => formatDateToLocal(String(str)),
   },
   {
     title: 'Status',

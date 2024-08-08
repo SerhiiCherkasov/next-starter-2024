@@ -1,5 +1,7 @@
+import {ReactNode} from "react";
+
 export type TableHeaderChild = {
-  element: (prop: any) => HTMLElement;
+  element: (prop: any) => ReactNode;
   propName?: string;
 };
 

@@ -12,7 +12,7 @@ export default function TableRow({ item, headers }: TableRowProps) {
     header.children ? header.children.map((child, index) => child.element(item[child.propName || header.slug])) : null;
 
   const renderWrappedChildren = (header: TableHeader) =>
-    header.children?.length > 1 ? (
+    header.children && header.children.length > 1 ? (
       <div className="flex justify-end gap-3">{renderChildren(header)}</div>
     ) : (
       renderChildren(header)
